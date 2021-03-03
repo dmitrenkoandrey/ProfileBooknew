@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfileBook.Views.AddEditProfileView" Title="Телефонная книга">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="user26.png"></Image>
+            <Label Text="Add Profile" FontSize="24" TextColor="Black" VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="getPhotoItem" Text="GetPhoto"  Order="Primary" Priority="1"></ToolbarItem>
+        <ToolbarItem x:Name="takePhotoItem" Text="TakePhoto"  Order="Primary" Priority="2"></ToolbarItem>
+        <!--<ToolbarItem x:Name="getPhotoItem" Text="GetPhoto" Clicked="GetPhotoAsync" Order="Primary" Priority="1"></ToolbarItem>
+        <ToolbarItem x:Name="takePhotoItem" Text="TakePhoto" Clicked="TakePhotoAsync" Order="Primary" Priority="2"></ToolbarItem>-->
+        <!--<ToolbarItem x:Name="takePhotoItem" Text="TakePhoto" Command="{Binding ListViewModel.TakePhotoCommand}" CommandParameter="{Binding}" Order="Primary" Priority="2"></ToolbarItem>-->
+        <ToolbarItem x:Name="saveItem" Text="Save" Clicked="SavePerson" Order="Primary" Priority="3"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Image x:Name="image1"  Source="{Binding ProfileImage}" Margin="10" HeightRequest="200"></Image>
+                <Entry Text="{Binding NickName}" FontSize="Medium" Placeholder="NickName" />
+                <Entry Text="{Binding Name}" FontSize="Medium" Placeholder="Name"/>
+                <Editor Text="{Binding Description}" BackgroundColor="#a5d6a7" Placeholder="Description" HeightRequest="200" />
+                <Entry x:Name="entRegDate" Text="{Binding RegDate}" />
+                <!--<StackLayout Orientation="Horizontal">
+                    <Button Text="Сохранить" Clicked="SavePerson" />
+                    <Button Text="Удалить" Clicked="DeletePerson" />
+                </StackLayout>-->
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProfileBook.Views.SignInView">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Image Source="logout.png"></Image>
+            <Label Text="Users SignIn" FontSize="24" TextColor="Black" VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout x:Name="stackLogin" Spacing="8" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="300" 
+                     AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <Label Text="Enter to the program" />
+
+            <Label  Text="Login name" />
+            <Entry x:Name="entLoginName" Placeholder="Login" />
+            <Label  Text="Password" />
+            <Entry x:Name="entPassword" Placeholder="Password" IsPassword="True" />
+            <!--<Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Command="{Binding ClickLoginCommand}" CommandParameter="{Binding}" />-->
+            <Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Clicked="btnLogin_Clicked"  />
+            <!--<Label x:Name="Logup" FontSize ="18" HorizontalTextAlignment="Center" TextColor="Blue"  Text="Log Up"/>-->
+            <Label HorizontalOptions="Center"
+       VerticalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="SIGN UP"
+                  TextColor="Blue"
+                              FontSize="20"
+                  TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ClickCommand}"/>
+                                <!--CommandParameter="btnLogup_Clicked" />-->
+                            </Span.GestureRecognizers>
+                        </Span>
+
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!--<Button x:Name="btnLogup" Text="Log up" FontAttributes="Bold" BackgroundColor="Aqua" Clicked="btnLogup_Clicked"  />-->
+        </StackLayout>
+        <!--<StackLayout IsVisible="{Binding IsBusy}" Padding="12" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#CCC0C0C0">-->
+        <!--<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+            <Label Text="Loading..." HorizontalOptions="Center" TextColor="Black" />-->
+        <!--</StackLayout>-->
+    </AbsoluteLayout>
+</ContentPage>
