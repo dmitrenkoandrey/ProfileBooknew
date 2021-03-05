@@ -14,8 +14,9 @@ using ProfileBook.Models;
 namespace ProfileBook.ViewModels
 {
     
-    public class PersonsListViewModel : INotifyPropertyChanged
+    public class PersonsListViewModel : ContentPage, INotifyPropertyChanged
     {
+        
         public Image Img { protected set; get; }
         //public Validator valid = new Validator();
         public ObservableCollection<PersonViewModel> Persons { get; set; }
@@ -30,7 +31,8 @@ namespace ProfileBook.ViewModels
         public ICommand GetPhotoCommand { protected set; get; }
         public ICommand EditPersonCommand { protected set; get; }
         PersonViewModel selectedPerson;
-        public INavigation Navigation { get; set; }
+       
+        public new INavigation Navigation { get; set; }
 
         public PersonsListViewModel()
         {
@@ -159,7 +161,7 @@ namespace ProfileBook.ViewModels
 
             catch (Exception ex)
             {
-                //await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
+                await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
         }
     }

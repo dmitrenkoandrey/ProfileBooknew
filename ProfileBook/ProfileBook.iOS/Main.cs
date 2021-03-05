@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace ProfileBook.iOS
+namespace ProfileBook.iOSInitializer
 {
     public class Application
     {

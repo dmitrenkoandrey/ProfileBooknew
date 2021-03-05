@@ -1,11 +1,11 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.IO;
-using ProfileBook.iOS;
+using ProfileBook.iOSInitializer;
 using ProfileBook.Services.Repository;
 
 [assembly: Dependency(typeof(IosDbPath))]
-namespace ProfileBook.iOS
+namespace ProfileBook.iOSInitializer
 {
     public class IosDbPath : IPath
     {

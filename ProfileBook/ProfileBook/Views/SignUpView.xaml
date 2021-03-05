@@ -12,15 +12,14 @@
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <StackLayout x:Name="stackLogin" Spacing="8" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="300" 
                      AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <!--<Label Text="Username Registration" />-->
             <Label  Text="New Login name" />
-            <Entry x:Name="entnewLoginName" Placeholder="New Login" />
+            <Entry x:Name="entnewLoginName" Text="{Binding entnewLoginName}" Placeholder="New Login" />
             <Label  Text="New Password" />
-            <Entry x:Name="entnewPassword" Placeholder="New Password" IsPassword="True" />
+            <Entry x:Name="entnewPassword" Text="{Binding entnewPassword}" Placeholder="New Password" IsPassword="True" />
             <Label  Text="Confirmation of Password" />
-            <Entry x:Name="entconfPassword" Placeholder="ConfPassword" IsPassword="True" />
+            <Entry x:Name="entconfPassword" Placeholder="ConfPassword"   Text="{Binding entconfPassword}" IsPassword="True" />
 
-            <Button x:Name="btnReg" Text="SIGN UP" FontAttributes="Bold" FontSize="20"  BackgroundColor="Aqua" Clicked="btnLogup_Clicked"  />
+            <Button x:Name="btnReg" Text="SIGN UP" FontAttributes="Bold" FontSize="20"  BackgroundColor="Aqua" Command="{Binding btnLogupCommand}"  />
         </StackLayout>
         <!--<StackLayout IsVisible="{Binding IsBusy}" Padding="12" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#CCC0C0C0">
             <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />

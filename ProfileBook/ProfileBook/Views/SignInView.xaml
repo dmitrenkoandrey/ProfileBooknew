@@ -12,13 +12,14 @@
         <StackLayout x:Name="stackLogin" Spacing="8" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="300" 
                      AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <Label Text="Enter to the program" />
-
+            <Label Text="{Binding Count}" />
+            <Button Text="Increment" Command="{Binding IncrementButtonTapCommand}" />
             <Label  Text="Login name" />
-            <Entry x:Name="entLoginName" Placeholder="Login" />
+            <Entry x:Name="entLoginName" Text="{Binding entLoginName}"  Placeholder="Login" />
             <Label  Text="Password" />
-            <Entry x:Name="entPassword" Placeholder="Password" IsPassword="True" />
+            <Entry x:Name="entPassword" Text="{Binding entPassword}" Placeholder="Password" IsPassword="True" />
             <!--<Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Command="{Binding ClickLoginCommand}" CommandParameter="{Binding}" />-->
-            <Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Clicked="btnLogin_Clicked"  />
+            <Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Command="{Binding btnLoginCommand}"  />
             <!--<Label x:Name="Logup" FontSize ="18" HorizontalTextAlignment="Center" TextColor="Blue"  Text="Log Up"/>-->
             <Label HorizontalOptions="Center"
        VerticalOptions="CenterAndExpand">
