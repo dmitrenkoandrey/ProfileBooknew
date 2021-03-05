@@ -44,20 +44,14 @@ namespace ProfileBook.ViewModels
             string pwd;
             if (entnewLoginName == null || entnewPassword == null || entconfPassword == null) //проверяем заполнение всех полей
             {
-                //await DisplayAlert("Регистрация", "Login и пароль не введены!", "OK");
-                //await Navigation.PushAsync(new SignUpView());
                 await _pageDialog.DisplayAlertAsync("Регистрация", "Login и пароль не введены!", "OK");
-                //await DisplayAlert("Login", "Login и пароль ошибочны!", "OK");
                 await _navigationService.NavigateAsync("SignUpView");
             }
             else
             {
-                newuserLogin = db.UserLogins.FirstOrDefault(p => p.UserName == entnewLoginName
-                ); //проверяем наличие в БД логина
+                newuserLogin = db.UserLogins.FirstOrDefault(p => p.UserName == entnewLoginName); //проверяем наличие в БД логина
                 if (newuserLogin != null)
                 {
-                    //await DisplayAlert("Регистрация", "Login уже зарегистрирован! Введите новое имя!", "OK");
-                    //await Navigation.PushAsync(new SignUpView());
                     await _pageDialog.DisplayAlertAsync("Регистрация", "Login уже зарегистрирован! Введите новое имя!!", "OK");
                     await _navigationService.NavigateAsync("SignUpView");
                 }
@@ -65,8 +59,6 @@ namespace ProfileBook.ViewModels
                 {
                     if (entnewPassword != entconfPassword)
                     {
-                        //await DisplayAlert("Регистрация", "Пароли регистрации и подтверждения должны быть одинаковы!", "OK");
-                        //await Navigation.PushAsync(new SignUpView());
                         await _pageDialog.DisplayAlertAsync("Регистрация", "Пароли регистрации и подтверждения должны быть одинаковы!", "OK");
                         await _navigationService.NavigateAsync("SignUpView");
                     }
@@ -74,8 +66,6 @@ namespace ProfileBook.ViewModels
                     {
                         if (entnewPassword.Length <= 4)
                         {
-                            //await DisplayAlert("Регистрация", "Длина пароля регистрации должна быть больше 4!", "OK");
-                            //await Navigation.PushAsync(new SignUpView());
                             await _pageDialog.DisplayAlertAsync("Регистрация", "Длина пароля регистрации должна быть больше 4!", "OK");
                             await _navigationService.NavigateAsync("SignUpView");
 
@@ -86,14 +76,11 @@ namespace ProfileBook.ViewModels
                             {
                                 db.UserLogins.Add(new UserLogin { UserName = entnewLoginName, Password = entnewPassword });
                                 db.SaveChanges();
-                                //await DisplayAlert("Регистрация", "Регистрация прошла успешно!", "ОK");
-                                //await Navigation.PushAsync(new SignInView());
                                 await _pageDialog.DisplayAlertAsync("Регистрация", "Регистрация прошла успешно!", "OK");
                                 await _navigationService.NavigateAsync("SignInView");
                             }
                             catch (Exception ex)
                             {
-                                // await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
                                 await _pageDialog.DisplayAlertAsync("Сообщение об ошибке", ex.Message, "OK");
                             }
                         }

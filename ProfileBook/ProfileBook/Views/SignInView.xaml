@@ -12,15 +12,11 @@
         <StackLayout x:Name="stackLogin" Spacing="8" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="300" 
                      AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
             <Label Text="Enter to the program" />
-            <Label Text="{Binding Count}" />
-            <Button Text="Increment" Command="{Binding IncrementButtonTapCommand}" />
             <Label  Text="Login name" />
             <Entry x:Name="entLoginName" Text="{Binding entLoginName}"  Placeholder="Login" />
             <Label  Text="Password" />
             <Entry x:Name="entPassword" Text="{Binding entPassword}" Placeholder="Password" IsPassword="True" />
-            <!--<Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Command="{Binding ClickLoginCommand}" CommandParameter="{Binding}" />-->
             <Button x:Name="btnLogin" Text="Sign In" FontSize="20" FontAttributes="Bold"  BackgroundColor="Pink" Command="{Binding btnLoginCommand}"  />
-            <!--<Label x:Name="Logup" FontSize ="18" HorizontalTextAlignment="Center" TextColor="Blue"  Text="Log Up"/>-->
             <Label HorizontalOptions="Center"
        VerticalOptions="CenterAndExpand">
                 <Label.FormattedText>
@@ -31,14 +27,12 @@
                   TextDecorations="Underline">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ClickCommand}"/>
-                                <!--CommandParameter="btnLogup_Clicked" />-->
                             </Span.GestureRecognizers>
                         </Span>
 
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <!--<Button x:Name="btnLogup" Text="Log up" FontAttributes="Bold" BackgroundColor="Aqua" Clicked="btnLogup_Clicked"  />-->
         </StackLayout>
         <!--<StackLayout IsVisible="{Binding IsBusy}" Padding="12" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#CCC0C0C0">-->
         <!--<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />

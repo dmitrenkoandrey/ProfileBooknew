@@ -8,7 +8,6 @@
             <Label Text="Users SignUp" FontSize="24" TextColor="Black" VerticalTextAlignment="Center" />
         </StackLayout>
     </NavigationPage.TitleView>
-    <!--<Label Text="Создание новой учетной записи" FontSize="22" TextColor="Black" VerticalTextAlignment="Center" />-->
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <StackLayout x:Name="stackLogin" Spacing="8" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="300" 
                      AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
