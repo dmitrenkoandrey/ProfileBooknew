@@ -49,7 +49,7 @@ namespace ProfileBook
                 }
             }
             //MainPage = new NavigationPage(new SignInView());
-            NavigationService.NavigateAsync($"{nameof(SignInView)}");
+            NavigationService.NavigateAsync("NavigationPage/SignInView");
         }
         
         protected override void OnStart()

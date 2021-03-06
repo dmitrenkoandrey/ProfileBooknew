@@ -42,7 +42,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <AbsoluteLayout HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-            <ImageButton Source="circle.png" Clicked="CreatePerson" Margin="20, 30"/>
+            <ImageButton Source="circle.png" Command="{Binding CreatePersonCommand}" Margin="20, 30"/>
         </AbsoluteLayout>
     </StackLayout>
     <!--</ScrollView>-->

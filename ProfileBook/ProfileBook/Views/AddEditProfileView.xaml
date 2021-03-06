@@ -9,20 +9,20 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="getPhotoItem" Text="GetPhoto" Clicked="GetPhotoAsync"  Order="Primary" Priority="1"></ToolbarItem>
+        <ToolbarItem x:Name="getPhotoItem" Text="GetPhoto"   Clicked="GetPhotoAsync"  Order="Primary" Priority="1"></ToolbarItem>
         <ToolbarItem x:Name="takePhotoItem" Text="TakePhoto" Clicked="TakePhotoAsync" Order="Primary" Priority="2"></ToolbarItem>
         <!--<ToolbarItem x:Name="getPhotoItem" Text="GetPhoto" Clicked="GetPhotoAsync" Order="Primary" Priority="1"></ToolbarItem>
         <ToolbarItem x:Name="takePhotoItem" Text="TakePhoto" Clicked="TakePhotoAsync" Order="Primary" Priority="2"></ToolbarItem>-->
         <!--<ToolbarItem x:Name="takePhotoItem" Text="TakePhoto" Command="{Binding ListViewModel.TakePhotoCommand}" CommandParameter="{Binding}" Order="Primary" Priority="2"></ToolbarItem>-->
-        <ToolbarItem x:Name="saveItem" Text="Save" Clicked="SavePerson" Order="Primary" Priority="3"></ToolbarItem>
+        <ToolbarItem x:Name="saveItem" Text="Save" Command="{Binding SavePersonCommand}" Order="Primary" Priority="3"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
                 <Image x:Name="image1"  Source="{Binding ProfileImage}" Margin="10" HeightRequest="200"></Image>
-                <Entry Text="{Binding NickName}" FontSize="Medium" Placeholder="NickName" />
-                <Entry Text="{Binding Name}" FontSize="Medium" Placeholder="Name"/>
-                <Editor Text="{Binding Description}" BackgroundColor="#a5d6a7" Placeholder="Description" HeightRequest="200" />
+                <Entry x:Name="entNickName" Text="{Binding entNickName}" FontSize="Medium" Placeholder="NickName" />
+                <Entry x:Name="entName" Text="{Binding entName}" FontSize="Medium" Placeholder="Name"/>
+                <Editor x:Name="entDescriptrion" Text="{Binding entDescription}" BackgroundColor="#a5d6a7" Placeholder="Description" HeightRequest="200" />
                 <Entry x:Name="entRegDate" Text="{Binding RegDate}" />
                 <!--<StackLayout Orientation="Horizontal">
                     <Button Text="Сохранить" Clicked="SavePerson" />

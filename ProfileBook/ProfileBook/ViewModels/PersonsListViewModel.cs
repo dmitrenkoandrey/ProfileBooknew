@@ -13,10 +13,10 @@ using ProfileBook.Models;
 
 namespace ProfileBook.ViewModels
 {
-    
-    public class PersonsListViewModel : ContentPage, INotifyPropertyChanged
+
+    public class PersonsListViewModel : INotifyPropertyChanged
     {
-        
+
         public Image Img { protected set; get; }
         //public Validator valid = new Validator();
         public ObservableCollection<PersonViewModel> Persons { get; set; }
@@ -31,7 +31,7 @@ namespace ProfileBook.ViewModels
         public ICommand GetPhotoCommand { protected set; get; }
         public ICommand EditPersonCommand { protected set; get; }
         PersonViewModel selectedPerson;
-       
+
         public new INavigation Navigation { get; set; }
 
         public PersonsListViewModel()
@@ -58,7 +58,7 @@ namespace ProfileBook.ViewModels
                     PersonViewModel tempPerson = value;
                     selectedPerson = null;
                     OnPropertyChanged("SelectedPerson");
-                    Navigation.PushAsync(new AddEditProfileView(tempPerson));
+                    //Navigation.PushAsync(new AddEditProfileView(tempPerson));
                 }
             }
         }
@@ -80,23 +80,23 @@ namespace ProfileBook.ViewModels
             Navigation.PopAsync();
         }
         private async void SavePerson(object personObject) //отключен
-        {  
-            PersonViewModel  person = personObject as PersonViewModel;
+        {
+            PersonViewModel person = personObject as PersonViewModel;
             if (person != null && person.IsValid && !Persons.Contains(person))//проверка валидации данных
             {
-               // valid.ValidMessageAsync;  //"Валидация, Поля  заполнены!"
+                // valid.ValidMessageAsync;  //"Валидация, Поля  заполнены!"
                 Persons.Add(person);
             }
             else
-             {
-            
-            Back();
-          
+            {
+
+                Back();
+
             }
 
-           //Back();
-          await  Navigation.PopAsync();
-            
+            //Back();
+            await Navigation.PopAsync();
+
         }
 
         private async void EditPerson(object personObject)
@@ -120,7 +120,7 @@ namespace ProfileBook.ViewModels
             Back();
         }
 
-      public async void TakePhotoAsync()
+        public async void TakePhotoAsync()
         {
             try
             {
@@ -137,14 +137,14 @@ namespace ProfileBook.ViewModels
 
                 // загружаем в ImageView
                 Img.Source = ImageSource.FromFile(photo.FullPath);
-               
+
             }
             catch (Exception ex)
             {
                 //await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
         }
-    public async void GetPhotoAsync()
+        public async void GetPhotoAsync()
         {
             try
             {
@@ -155,13 +155,13 @@ namespace ProfileBook.ViewModels
                 Img.Source = ImageSource.FromFile(photo.FullPath);
                 //IsBusy1 = false;
                 AddEditProfileView.Imagesource = photo.FullPath;
-             await Navigation.PushAsync(new AddEditProfileView(new PersonViewModel() { ListViewModel = this }));
+                // await Navigation.PushAsync(new AddEditProfileView(new PersonViewModel() { ListViewModel = this }));
 
             }
 
             catch (Exception ex)
             {
-                await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
+                //  await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
             }
         }
     }

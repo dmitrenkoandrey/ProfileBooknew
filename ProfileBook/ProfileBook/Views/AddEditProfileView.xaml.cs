@@ -19,7 +19,7 @@ namespace ProfileBook.Views
         string dbPath;
         public Image Img { set; get; }
 
-        private PersonViewModel personViewModel;
+        //private PersonViewModel personViewModel;
         //public MainListView mainList = new MainListView();
         public static string Imagesource { set; get; }
         //public PersonViewModel ViewModel { get; private set; }
@@ -52,10 +52,10 @@ namespace ProfileBook.Views
 
         }
 
-        public AddEditProfileView(PersonViewModel personViewModel)
-        {
-            this.personViewModel = personViewModel;
-        }
+        //public AddEditProfileView(PersonViewModel personViewModel)
+        //{
+        //    this.personViewModel = personViewModel;
+        //}
 
         private void SavePerson(object sender, EventArgs e)
         {
