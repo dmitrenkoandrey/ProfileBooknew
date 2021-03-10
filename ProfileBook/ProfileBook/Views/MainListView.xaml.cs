@@ -45,34 +45,16 @@ namespace ProfileBook.Views
             base.OnAppearing();
         }
         // обработка нажатия элемента в списке
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        public async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Person selectedPerson = (Person)e.SelectedItem;
             AddEditProfileView personPage = new AddEditProfileView();
             personPage.BindingContext = selectedPerson;
             person1 = selectedPerson;
- 
+
             await Navigation.PushAsync(personPage);
         }
-        // обработка нажатия кнопки добавления
-        private async void CreatePerson(object sender, EventArgs e)
-        {
-
-            Person person = new Person();
-            AddEditProfileView personPage = new AddEditProfileView();
-            personPage.BindingContext = person;
-            person.RegDate = DateTime.Now.ToString();
-            await Navigation.PushAsync(personPage);
-        }
-        async void OnLogoutItemClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SignInView());
-        }
-
-        async void OnSettingsItemClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SettingsView());
-        }
+        
         async void OnEditProfileItemClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddEditProfileView());
@@ -82,11 +64,6 @@ namespace ProfileBook.Views
         {
 
             //await Navigation.PushAsync(new UserInfoPage(null));
-        }
-        async void OnExitItemClicked(object sender, EventArgs e)
-        {
-            var diaRes = await DisplayAlert("Exit", "Are you sure you want to close the application?", "Yes", "Cancel");
-            if (diaRes) System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
         }
 
         private async void EditPerson(object sender, EventArgs e)
@@ -108,13 +85,22 @@ namespace ProfileBook.Views
             if (delres)
             {
                 var person = person1;
-                //person = (Person)BindingContext;
-                using (ApplicationContext db = new ApplicationContext(dbPath))
+                
+                    // person = (Person)BindingContext;
+                try
                 {
-                    db.Persons.Remove(person);
-                    db.SaveChanges();
+                    using (ApplicationContext db = new ApplicationContext(dbPath))
+                    {
+                        db.Persons.Remove(person);
+                        db.SaveChanges();
+                    }
+                    await Navigation.PushAsync(new MainListView());
                 }
-                await Navigation.PushAsync(new MainListView());
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Сообщение об ошибке", ex.Message, "OK");
+
+                }
             }
         }
     }

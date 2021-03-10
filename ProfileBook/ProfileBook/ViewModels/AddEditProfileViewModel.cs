@@ -32,49 +32,11 @@ namespace ProfileBook.ViewModels
             _pageDialog = pageDialog;
         }
         public ICommand SavePersonCommand => new Command(SavePerson);
-        // string dbPath;
-        // public Image Img { set; get; }
-
-        //// private PersonViewModel personViewModel;
-        // public Image image1;
-
-        //public MainListView mainList = new MainListView();
-        //public static string Imagesource { set; get; }
-        //ToolbarItem saveItem { get; set; }
-        //ToolbarItem takePhotoItem { get; set; }
-        //ToolbarItem getPhotoItem { get; set; }
+         
         public AddEditProfileViewModel()
-        { }
+        { 
+        }
 
-        //  Img = new Image();
-        //image1.Source = "pic_profile1";
-        //lbRegDate.Text = DateTime.Now.ToString();
-        // dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
-        //var PersListView = new PersonsListViewModel();
-        //  ProfileService profileService = new ProfileService();
-        //if (PersonsListViewModel.IsBusy1 == false)
-        //{
-        //    image1.Source = "pic_profile1.png";
-
-        //}
-        //else
-        //{
-        //    image1.Source = Imagesource;
-        //}
-
-        ////ViewModel = vm;
-        ////this.BindingContext = ViewModel;
-        //saveItem.IconImageSource = ImageSource.FromFile("save.png");
-        //takePhotoItem.IconImageSource = ImageSource.FromFile("ic_camera.png");
-        //getPhotoItem.IconImageSource = ImageSource.FromFile("ic_camera1.png");// выбор фото
-        //                                                                      // getPhotoItem.Clicked += profileService.GetPhotoAsync;
-        // takePhotoItem.Clicked += profileService.TakePhotoAsync;    
-
-        //}
-        // public AddEditProfileViewModel(PersonViewModel personViewModel)
-        ///{
-        // this.personViewModel = personViewModel;
-        //  }
         private async void SavePerson()
         {
             ApplicationContext db = new ApplicationContext(dbPath);
@@ -103,23 +65,6 @@ namespace ProfileBook.ViewModels
          }
      }
 
-            //var person = (Person)BindingContext;
-            //  //person.RegDate = DateTime.Now.ToString();
-            //  if (!String.IsNullOrEmpty(person.NickName))
-            //  {
-            //      using (ApplicationContext db = new ApplicationContext(dbPath))
-            //      {
-
-            //          if (person.Id == 0)
-            //              db.Persons.Add(person);
-            //          else
-            //          {
-            //              db.Persons.Update(person);
-            //          }
-            //          db.SaveChanges();
-            //      }
-            //  }
-            //  await _navigationService.NavigateAsync("MainListView");
-        }
+  }
     
 

@@ -10,10 +10,11 @@
         </StackLayout>
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="logoutItem" Text="Logout" Clicked="OnLogoutItemClicked" Order="Primary" Priority="1"></ToolbarItem>
-        <ToolbarItem x:Name="settingsItem" Text="Settings" Clicked="OnSettingsItemClicked" Order="Primary" Priority="1"></ToolbarItem>
+        <ToolbarItem x:Name="logoutItem" Text="Logout" Command="{Binding LogoutItemCommand}" Order="Primary" Priority="1"></ToolbarItem>
+        <ToolbarItem x:Name="settingsItem" Text="Settings" Command="{Binding SettingsItemCommand}" Order="Primary" Priority="1"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <!--<ScrollView>-->
+    
     <StackLayout>
         <ListView x:Name="personsList" ItemsSource="{Binding Persons}" 
               SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" HasUnevenRows="True">
@@ -24,6 +25,8 @@
                             <MenuItem Text="Edit" Clicked="EditPerson" />
                             <!--<MenuItem Text="Edit" Command="{Binding ListViewModel.EditPerson}" CommandParameter="{Binding}" />-->
                             <MenuItem Text="Delete" Clicked="DeletePerson" />
+                            <!--<MenuItem Text="Delete" Command="{Binding DeletePersonCommand}" />-->
+                            <!--<MenuItem Text="Delete" Clicked="DeletePerson" />-->
                         </ViewCell.ContextActions>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal">

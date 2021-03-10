@@ -30,6 +30,7 @@ namespace ProfileBook
             containerRegistry.RegisterForNavigation<MainListView, MainListViewModel>();
             containerRegistry.RegisterForNavigation<SignUpView, SignUpViewModel>();
             containerRegistry.RegisterForNavigation<AddEditProfileView, AddEditProfileViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsView, SettingsViewModel>();
         }
         protected override void OnInitialized()
         {
@@ -42,8 +43,8 @@ namespace ProfileBook
                 db.Database.EnsureCreated();
                 if (db.Persons.Count() == 0)
                 {
-                    db.Persons.Add(new Person { NickName = "Andrey", Name = "Andrey Dmitrenko", Description = "Hello, Andrey!", RegDate = "02/24/2021 1:50:23 PM" });
-                    db.Persons.Add(new Person { NickName = "Sveta", Name = "Svetlana Dmitrenko", Description = "Hello, Sveta!", RegDate = "01/15/2021 9:45:34 AM" });
+                    db.Persons.Add(new Person { NickName = "Andrey", Name = "Andrey Dmitrenko", Description = "Hello, Andrey!", RegDate = "02/24/2021 1:50:23 PM", ProfileImage = "person2" });
+                    db.Persons.Add(new Person { NickName = "Sveta", Name = "Svetlana Dmitrenko", Description = "Hello, Sveta!", RegDate = "01/15/2021 9:45:34 AM", ProfileImage = "person1" });
                     db.UserLogins.Add(new UserLogin { UserName = "user", Password = "1234567" });
                     db.SaveChanges();
                 }
