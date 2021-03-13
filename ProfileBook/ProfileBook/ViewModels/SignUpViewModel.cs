@@ -66,7 +66,7 @@ namespace ProfileBook.ViewModels
                     {
                         if (entnewPassword.Length < 8 || entnewPassword.Length > 16)
                         {
-                            await _pageDialog.DisplayAlertAsync("Регистрация", "Длина пароля регистрации должна быть больше 8 и меньше 12!", "OK");
+                            await _pageDialog.DisplayAlertAsync("Регистрация", "Длина пароля регистрации должна быть больше 8 и меньше 16!", "OK");
                             await _navigationService.NavigateAsync("SignUpView");
 
                         }
