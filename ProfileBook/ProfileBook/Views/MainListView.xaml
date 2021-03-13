@@ -13,8 +13,7 @@
         <ToolbarItem x:Name="logoutItem" Text="Logout" Command="{Binding LogoutItemCommand}" Order="Primary" Priority="1"></ToolbarItem>
         <ToolbarItem x:Name="settingsItem" Text="Settings" Command="{Binding SettingsItemCommand}" Order="Primary" Priority="1"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    <!--<ScrollView>-->
-    
+
     <StackLayout>
         <ListView x:Name="personsList" ItemsSource="{Binding Persons}" 
               SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" HasUnevenRows="True">
@@ -23,14 +22,10 @@
                     <ViewCell>
                         <ViewCell.ContextActions>
                             <MenuItem Text="Edit" Clicked="EditPerson" />
-                            <!--<MenuItem Text="Edit" Command="{Binding ListViewModel.EditPerson}" CommandParameter="{Binding}" />-->
-                            <MenuItem Text="Delete" Clicked="DeletePerson" />
-                            <!--<MenuItem Text="Delete" Command="{Binding DeletePersonCommand}" />-->
-                            <!--<MenuItem Text="Delete" Clicked="DeletePerson" />-->
+                            <MenuItem Text="Delete"  Clicked="DeletePerson" />
                         </ViewCell.ContextActions>
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal">
-                                <!--<Image Source="{Binding ProfileImage}" HorizontalOptions="Start"/>-->
                                 <Image Source="person1" HorizontalOptions="Start"/>
                                 <StackLayout>
                                     <Label Text="{Binding NickName}" FontSize="Large" />
@@ -48,7 +43,6 @@
             <ImageButton Source="circle.png" Command="{Binding CreatePersonCommand}" Margin="20, 30"/>
         </AbsoluteLayout>
     </StackLayout>
-    <!--</ScrollView>-->
 
 
 </ContentPage>

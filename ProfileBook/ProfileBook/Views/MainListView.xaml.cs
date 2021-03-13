@@ -12,12 +12,17 @@ using ProfileBook.TreeView;
 using ProfileBook.ViewModels;
 using ProfileBook.Services.Repository;
 using ProfileBook.Views;
+using System.Windows.Input;
+using static Android.App.Notification.MessagingStyle;
+using Acr.UserDialogs;
+
+using Android;
+
 namespace ProfileBook.Views
 {
     [DesignTimeVisible(false)]
     public partial class MainListView : ContentPage
     {
-        //private string regDate = DateTime.Now.ToString();
         Person person1 = new Person();
         string dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
         public MainListView()
@@ -27,9 +32,6 @@ namespace ProfileBook.Views
             //this.BindingContext = new PersonsListViewModel();
             logoutItem.IconImageSource = ImageSource.FromFile("logout.png");
             settingsItem.IconImageSource = ImageSource.FromFile("settings.png");
-           // BindingContext = this;
-           //BindingContext = new PersonsListViewModel() { Navigation = this.Navigation };
-            //IsBusy = false;
 
         }
 
@@ -37,10 +39,10 @@ namespace ProfileBook.Views
 
         protected override void OnAppearing()
         {
-            //dbPath = DependencyService.Get<IPath>().GetDatabasePath(App.DBFILENAME);
             using (ApplicationContext db = new ApplicationContext(dbPath))
             {
                 personsList.ItemsSource = db.Persons.ToList();
+               
             }
             base.OnAppearing();
         }
@@ -85,14 +87,16 @@ namespace ProfileBook.Views
             if (delres)
             {
                 var person = person1;
-                
-                    // person = (Person)BindingContext;
+
                 try
                 {
                     using (ApplicationContext db = new ApplicationContext(dbPath))
                     {
-                        db.Persons.Remove(person);
-                        db.SaveChanges();
+                        if(db.Persons != null)
+                        {
+                            db.Persons.Remove(person);
+                            db.SaveChanges();
+                        }
                     }
                     await Navigation.PushAsync(new MainListView());
                 }
@@ -105,3 +109,4 @@ namespace ProfileBook.Views
         }
     }
 }
+

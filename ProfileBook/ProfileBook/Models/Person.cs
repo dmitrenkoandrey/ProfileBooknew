@@ -6,7 +6,7 @@ using SQLite;
 
 namespace ProfileBook.Models
 {
-    
+    [Table("Persons")]
     public class Person
     {
        [PrimaryKey, AutoIncrement]

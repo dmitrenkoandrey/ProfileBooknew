@@ -10,6 +10,7 @@ using Prism.Ioc;
 using Prism.Unity;
 using Prism.Modularity;
 using ProfileBook.ViewModels;
+using System.IO;
 
 namespace ProfileBook
 {
@@ -18,6 +19,20 @@ namespace ProfileBook
 
         //public static bool IsUserLoggedIn { get { return !string.IsNullOrEmpty(Tocken); }}
         public const string DBFILENAME = "personsapp.db";
+        public static PersonRepository database;
+        public static PersonRepository Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new PersonRepository(
+                        Path.Combine(
+                            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DBFILENAME));
+                }
+                return database;
+            }
+        }
         public App(IPlatformInitializer initializer = null) : base(initializer) 
         {      
         }
